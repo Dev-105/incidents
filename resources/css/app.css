@@ -1,4 +1,9 @@
 /* Simple beginner-friendly styles for the incident management app */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -181,4 +186,78 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
+}
+/* Custom scrollbar for iOS feel */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Smooth transitions */
+* {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* iOS-style focus rings */
+button:focus, a:focus, input:focus, textarea:focus, select:focus {
+    outline: none;
+    ring: 2px solid #10b981;
+    ring-offset: 2px;
+}
+/* iOS-style pagination */
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagination .page-item {
+    margin: 0;
+}
+
+.pagination .page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.75rem;
+    background-color: white;
+    color: #374151;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    transition: all 0.2s;
+}
+
+.pagination .page-link:hover {
+    background-color: #f3f4f6;
+    transform: translateY(-1px);
+}
+
+.pagination .active .page-link {
+    background-color: #10b981;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.pagination .disabled .page-link {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
